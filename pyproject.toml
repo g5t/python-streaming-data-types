@@ -1,0 +1,39 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ess-streaming-data-types"
+dynamic = ["version"]
+description = "Python utilities for handling ESS streamed data"
+readme = "README.md"
+license = "BSD-2-Clause"
+requires-python = ">=3.6.0"
+authors = [
+    { name = "ScreamingUdder" },
+]
+dependencies = [
+    "flatbuffers",
+    "numpy",
+]
+
+[project.optional-dependencies]
+dev = [
+    "flake8",
+    "pre-commit",
+    "pytest",
+    "tox",
+]
+
+[project.urls]
+Homepage = "https://github.com/ess-dmsc/python-streaming-data-types"
+
+[tool.hatch.version]
+path = "streaming_data_types/_version.py"
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/streaming_data_types",
+]
+[tool.hatch.build.targets.wheel]
+packages = ["streaming_data_types"]
